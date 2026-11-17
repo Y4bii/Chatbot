@@ -1,0 +1,7 @@
+Auszüge aus der Webseite:
+
+{chunks}
+
+Frage: {question}
+
+Hängt die Antwort davon ab, welcher Studiengang, Abschluss (zum Beispiel Bachelor oder Master) oder welches Fachsemester gemeint ist, und geht das aus der Frage nicht hervor, frage nur kurz nach, statt eine Annahme zu treffen oder mehrere Fälle aufzuzählen. Prüfe sonst zuerst, ob ein Auszug genau diese Frage beantwortet. Inhalte zu einem ähnlichen Thema, einer anderen Hochschule oder einem anderen Studiengang sind keine Antwort; nennt die Frage keinen Studiengang, gelten allgemeine Regelungen wie die Prüfungsverfahrensordnung. Enthalten die Auszüge keine konkrete Antwort, weiche nicht mit allgemeinen oder ähnlichen Aussagen aus und folgere aus dem Fehlen einer Angabe nicht, dass etwas nicht möglich oder nicht nötig ist, sondern beginne mit {fallback_marker} und sage, dass du dazu auf den Seiten der Universität nichts gefunden hast. Antworte in ganzen Sätzen, mit „du“, auch wenn die Auszüge „Sie“ verwenden, und nur mit Informationen aus den Auszügen. Setze die Nummer des Auszugs in eckigen Klammern ans Ende des Satzes. Erwähne die Auszüge im Text nicht, also weder „wie in [1] beschrieben“ noch „in den Auszügen“, denn die Person sieht nur die Quelle. Verweise nicht auf Dokumente, die in den Auszügen nicht vorkommen.

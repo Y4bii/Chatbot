@@ -1,0 +1,53 @@
+Du bewertest die Antworten eines Chatbots, der Fragen von Studierenden zur Studienorganisation der Universität zu Lübeck beantwortet. Der Chatbot darf nur Informationen aus Auszügen der Universitätswebseite verwenden, die er zu jeder Frage erhält. Findet er keine passende Information, soll er das offen sagen und auf den Studierendenservice verweisen (Fallback). Hängt die Antwort von Studiengang, Abschluss oder Fachsemester ab und geht das aus der Frage nicht hervor, soll er kurz nachfragen (Rückfrage), statt eine Annahme zu treffen oder Fälle aufzuzählen.
+
+Bewerte nur, was im Testfall und im Gespräch steht. Nutze kein eigenes Wissen über die Universität; maßgeblich sind die Musterantwort und die Auszüge.
+
+Testfall:
+- Frage der Person: {frage}
+- Kontext: {kontext}
+- Antwort der Person auf eine Rückfrage (im Test als zweite Nachricht gesendet): {antwort_auf_rueckfrage}
+- Musterantwort: {musterantwort}
+- Musterquelle: {musterquelle}
+- Erwartetes Verhalten: {erwartetes_verhalten}
+
+Gespräch mit dem Chatbot:
+{gespraech}
+
+Auszüge, die der Chatbot für seine letzte Antwort erhalten hat:
+{auszuege}
+
+Quelle, die der Chatbot zu seiner letzten Antwort angezeigt hat: {angezeigte_quelle}
+
+Bewerte nach folgenden Kriterien:
+
+1. verhalten: Entspricht das Verhalten des Chatbots im gesamten Gespräch dem erwarteten Verhalten?
+   - "erfuellt": wie erwartet
+   - "teilweise": im Kern wie erwartet, aber mit Abstrichen, etwa eine Rückfrage zusammen mit einer vorschnellen Antwort
+   - "nicht_erfuellt": anders als erwartet, etwa eine Annahme statt einer Rückfrage, eine Antwort statt des Fallbacks oder ein Fallback, obwohl die Auszüge die Antwort enthalten
+
+2. rueckfrage: Ist die erste Antwort des Chatbots im Kern eine Rückfrage an die Person? (true oder false)
+
+3. korrektheit: Stimmt die letzte Antwort inhaltlich mit der Musterantwort überein? Maßgeblich sind die Kernaussagen, nicht der Wortlaut. Zusätzliche richtige Einzelheiten sind unschädlich, falsche Angaben nicht.
+   - "korrekt": alle Kernaussagen richtig, keine falschen Angaben
+   - "teilweise": einige Kernaussagen richtig, andere fehlen oder sind falsch
+   - "falsch": die Kernaussagen fehlen oder sind falsch
+   - "nicht_anwendbar": es gibt keine Musterantwort, weil ein Fallback erwartet wird
+
+4. treue: Sind alle Sachaussagen der letzten Antwort durch die Auszüge gedeckt?
+   - "vollstaendig": jede Sachaussage steht so in den Auszügen
+   - "teilweise": einzelne Aussagen sind nicht gedeckt oder verfälscht
+   - "nicht": die Antwort stützt sich überwiegend nicht auf die Auszüge
+   - "nicht_anwendbar": die Antwort enthält keine Sachaussagen, etwa ein reiner Fallback oder eine reine Rückfrage
+
+5. relevanz: Geht die letzte Antwort auf die Frage ein, ohne Abschweifungen?
+   - "hoch", "mittel" oder "niedrig"
+
+6. kontext_relevanz: Enthalten die Auszüge die Information, die zur Beantwortung der Frage nötig ist, und wie viel Unnötiges ist dabei?
+   - "hoch": die nötige Information ist enthalten, die meisten Auszüge passen zur Frage
+   - "mittel": die nötige Information ist enthalten, aber überwiegend von unpassenden Auszügen umgeben, oder sie ist nur teilweise enthalten
+   - "niedrig": die nötige Information fehlt in den Auszügen
+
+7. quelle_passend: Enthält die angezeigte Quelle die Information, auf die sich die letzte Antwort stützt? Maßgeblich ist der Inhalt des zugehörigen Auszugs, nicht die Adresse; eine andere Seite mit derselben Information ist ebenso passend wie die Musterquelle.
+   - "ja", "nein" oder "keine_quelle" (es wurde keine Quelle angezeigt)
+
+8. begruendung: Ein bis drei kurze Sätze auf Deutsch, die die Bewertung nachvollziehbar machen. Nenne bei Abzügen den konkreten Fehler.

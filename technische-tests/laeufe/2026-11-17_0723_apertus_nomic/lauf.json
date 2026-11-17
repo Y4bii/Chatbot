@@ -1,0 +1,22 @@
+{
+  "beginn": "2026-11-17T07:23:30+01:00",
+  "dauer_sekunden": 1102.8,
+  "fragen": 58,
+  "testdatensatz": "technische-tests/testdatensatz.csv",
+  "sprachmodell": {
+    "schluessel": "apertus",
+    "repo": "TyKaoz/Apertus-v1.5-8B-text-4bit",
+    "revision": "c6a6878bff8a4352467faf74615565f0f9907dc8"
+  },
+  "embedding_modell": {
+    "schluessel": "nomic",
+    "repo": "nomic-ai/nomic-embed-text-v2-moe"
+  },
+  "index": "data/index/2026-11-15-v10",
+  "temperatur": 0.0,
+  "aufwaermfragen": [
+    "Was ist das Studium Generale?",
+    "Wo finde ich den Lageplan des Campus?",
+    "Wie kann ich mich exmatrikulieren?"
+  ]
+}

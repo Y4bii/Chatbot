@@ -1,0 +1,418 @@
+# Konfiguration für die Universität zu Lübeck.
+# Alle hochschulspezifischen Angaben sind hier gebündelt. Für eine andere
+# Hochschule wird diese Datei angepasst und die Indexierung neu ausgeführt.
+
+[university]
+name = "Universität zu Lübeck"
+
+[crawler]
+start_url = "https://www2.uni-luebeck.de/studium/"
+# Webseiten der Hochschule, von denen Seiten abgerufen werden (neue und alte Webseite)
+site_hosts = ["www2.uni-luebeck.de", "www.uni-luebeck.de"]
+# Seiten unter diesem Pfad werden vollständig abgerufen.
+core_path_prefix = "/studium/"
+# Seiten außerhalb des Kernbereichs werden bis zu dieser Zahl an Klicks verfolgt.
+max_outside_depth = 2
+# PDF-Dokumente werden nur von dieser Domain und ihren Subdomains übernommen.
+document_domain = "uni-luebeck.de"
+# Pfade, die nie abgerufen werden: die englischsprachige Version sowie Pressemitteilungen,
+# die nicht zur Studienorganisation gehören und veraltete Angaben enthalten können.
+# Bereits abgerufene Seiten dieser Pfade entfallen bei der Aufbereitung.
+excluded_path_prefixes = ["/en/", "/aktuelles/"]
+# Seiten mit abweichender Sprachangabe im HTML werden nicht übernommen.
+language = "de"
+# Inhaltsbereich einer Seite, aus dem Links verfolgt werden; der erste Treffer gilt.
+# "main" für die neue Webseite (www2), ".mainarticles" für die alte (www)
+content_selectors = ["main", ".mainarticles"]
+# Elemente im Inhaltsbereich, deren Links nicht verfolgt werden
+ignored_selectors = [".breadcrumb-section"]
+# Wartezeit zwischen zwei Abrufen in Sekunden, um den Server nicht zu belasten
+request_delay = 2.0
+# Zeitlimit je Abruf in Sekunden
+timeout = 30.0
+# Obergrenze aller Abrufe. Sie schützt nur vor Endlosschleifen, etwa durch Seiten mit
+# unbegrenzt vielen Varianten, und soll den Inhalt nicht begrenzen. Der ursprüngliche
+# Wert 5.000 war für die Webseite zu niedrig (Modulhandbücher).
+max_requests = 20000
+# Größere Dokumente werden übersprungen.
+max_document_mb = 50
+user_agent = "Studien-Assistent-Prototyp/0.1"
+
+[preprocessing]
+# Einträge der Breadcrumb einer Seite; der erste Selektor mit Treffern gilt. Ohne Treffer
+# wird der Pfad der verweisenden Seite übernommen.
+breadcrumb_selectors = [".breadcrumb-section .breadcrumb-text"]
+# Erster Eintrag der Breadcrumb, der für die Quellenangabe entfällt
+breadcrumb_root = "Startseite"
+# Nichtssagende Seitentitel, z. B. der Modulhandbücher; stattdessen werden die ersten
+# beiden Überschriften des Inhalts verwendet (etwa Modulnummer und Modulname).
+generic_titles = ["Details"]
+# Elemente im Inhaltsbereich, die nicht in den Text übernommen werden. Dazu gehören
+# Elemente, die auf vielen Seiten gleich sind: der Kasten „Häufig gesucht“ und der
+# Zustimmungshinweis für eingebettete Videos.
+removed_selectors = [
+    ".breadcrumb-section", "script", "style", "noscript", "svg", "img",
+    "button", "select", "input", "label", "fieldset",
+    ".mask_haeufig_gesucht", ".cookiecontent",
+]
+# Textblöcke, die auf mindestens so vielen Seiten vorkommen, werden nur einmal behalten.
+# 0 schaltet die Regel ab. Sie ist abgeschaltet, da sie bei den Modulhandbüchern
+# gleichlautende Inhalte entfernte, z. B. „Wird nur auf Deutsch angeboten“.
+boilerplate_min_pages = 0
+# Blöcke unterhalb dieser Länge (Zeichen) werden dabei nicht betrachtet.
+boilerplate_min_chars = 30
+# PDF-Dokumente mit weniger lesbarem Text je Seite gelten als nicht lesbar (z. B. Scans).
+min_pdf_chars_per_page = 50
+# Dokumente, die zwar auf dem Server der Universität liegen, aber von anderen Einrichtungen
+# stammen (z. B. Leitfäden anderer Hochschulen). Sie werden nicht aufgenommen.
+excluded_documents = [
+    # Leitfäden der HAW Hamburg und der Hochschule Ludwigshafen
+    "https://www.uni-luebeck.de/fileadmin/uzl_barrierefreiheit/Dozentenleitfaden_HAW_Hamburg.pdf",
+    "https://www.uni-luebeck.de/fileadmin/uzl_barrierefreiheit/Studieren_mit_Handicap_HS_Ludwigshafen_am_Rhein.pdf",
+]
+
+# Semesterübersichten je Studiengang, abgeleitet aus den Modul-Steckbriefen. Abgeschaltet:
+# Verbindlich ist der Regelstudienplan auf der Seite des Studiengangs; die abgeleiteten
+# Übersichten waren unvollständig (ohne Wahlpflichtanteile) und verdrängten den
+# Regelstudienplan bei der Suche.
+# Die Angaben beschreiben den Aufbau der Steckbriefe dieser Hochschule.
+[preprocessing.semester_overviews]
+enabled = false
+# Adressbestandteil der Modul-Steckbriefe und Breadcrumb-Eintrag des Modulhandbuchs
+module_url_marker = "/modulhandbuch/details/"
+handbook_breadcrumb = "Modulhandbuch"
+# Überschriften der benötigten Abschnitte in den Steckbriefen
+semester_heading = "Studiengang, Fachgebiet und Fachsemester:"
+credits_heading = "Leistungspunkte"
+exam_heading = "Vergabe von Leistungspunkten und Benotung durch:"
+
+[chunking]
+# Tokenizer zum Zählen der Token. Beide Embedding-Modelle verwenden den Tokenizer
+# von XLM-RoBERTa, sodass für beide dieselben Chunks entstehen.
+tokenizer = "intfloat/multilingual-e5-large-instruct"
+# Höchstens 512 Token je Eingabe, abzüglich Puffer für Präfixe und Sondertoken der Modelle
+max_tokens = 480
+# Überlappung zwischen aufeinanderfolgenden Teilen eines zu langen Abschnitts
+overlap_tokens = 64
+# Kürzere Abschnitte werden mit benachbarten Abschnitten unter derselben übergeordneten
+# Überschrift zusammengelegt, z. B. Teaser-Kacheln auf Übersichtsseiten.
+min_section_tokens = 64
+
+[student_service]
+# Kontaktdaten werden bei einem Fallback an die Antwort angehängt.
+name = "Studierendenservice"
+# Funktionsadresse des Studierendensekretariats; persönliche Adressen und Durchwahlen
+# werden bewusst nicht übernommen. Eine zentrale Telefonnummer nennt die Webseite nicht.
+email = "studierendensekretariat@uni-luebeck.de"
+phone = ""
+url = "https://www2.uni-luebeck.de/studium/studiumsorganisation/studierenden-service-center/"
+
+[chatbot]
+name = "Studien-Assistent"
+subtitle = "KI-Assistent für Fragen zum Studium"
+# Markierung, mit der das Modell eine Antwort beginnt, wenn die Chunks keine Antwort enthalten
+fallback_marker = "[KEINE_ANTWORT]"
+# Text des Fallbacks; ihm folgen die Kontaktdaten des Studierendenservice
+fallback_response = "Dazu habe ich auf den Seiten der Universität leider keine passende Information gefunden."
+# Anzahl der vorherigen Fragen und Antworten, die für Folgefragen berücksichtigt werden
+history_turns = 2
+# Höchstzahl der angezeigten Quellen je Antwort. Unter den vom Modell zitierten Quellen
+# werden die mit dem besten Rang in der Suche gewählt; nennt das Modell keine Nummern,
+# die bestplatzierten übergebenen Chunks.
+max_sources = 1
+# Kurze Eingaben ohne Fragezeichen, zu denen die Stichwortsuche kein einziges passendes
+# Wort findet, werden nicht als Frage behandelt, sondern mit einer Bitte um eine Frage
+# beantwortet (z. B. unbekannte Grüße oder Tippfehler). Stichworte wie „Semesterbeitrag“
+# finden Treffer und werden normal beantwortet.
+unclear_max_words = 3
+unclear_response = "Damit kann ich leider nichts anfangen. Stell mir gern eine Frage zu Studium und Studienorganisation, zum Beispiel: „Wann ist die Rückmeldung für das Sommersemester?“"
+# Kurze Nachrichten ohne Fragezeichen im laufenden Gespräch, etwa „Bachelor“ oder
+# „Bachelor IT-Sicherheit, 3. Semester“, ergänzen die vorherige Frage (Antwort auf eine
+# Rückfrage oder Korrektur einer Annahme). Sie werden ohne Sprachmodell an diese angehängt.
+addition_max_words = 6
+
+# Begrüßung, Dank, Bestätigung und Verabschiedung werden vor der Suche erkannt und fest
+# beantwortet, da sonst zufällig ähnliche Chunks gefunden und als Antwort verwendet würden.
+# Die Muster (reguläre Ausdrücke) müssen auf die gesamte Eingabe passen, nachdem sie in
+# Kleinbuchstaben umgewandelt und von Satzzeichen befreit wurde.
+[chatbot.small_talk.greeting]
+patterns = [
+    "(?:hallo+|hall[oö]chen|hal+i+|hi+|hey+(?:ho)?|hej|huhu|moin|servus|tach|na|yo|jo|grüß (?:dich|gott|euch)|grüezi|guten (?:morgen|tag|abend)|morgen)(?: (?:hallo+|hi+|hey+|moin|na))*(?: (?:zusammen|du|ihr|leute|studien-?assistent|bot|chatbot|wie geht s|wie gehts))?",
+]
+response = "Hallo! Ich beantworte Fragen zu Studium und Studienorganisation an der {university_name}. Was möchtest du wissen?"
+
+[chatbot.small_talk.thanks]
+patterns = [
+    "(?:(?:ok(?:ay)?|super|perfekt|top|cool|alles klar|klasse|prima|gut|ah|ach so) )?(?:danke+|dankeschön|vielen (?:lieben )?dank|thx|thanks|thank you|merci)(?: (?:dir|euch|schön|sehr|vielmals|für die (?:info|antwort|hilfe)))*",
+]
+response = "Gern geschehen! Wenn du noch eine Frage hast, stell sie einfach."
+
+[chatbot.small_talk.acknowledgement]
+patterns = [
+    "(?:ok(?:ay)?|okey|alles klar|super|cool|top|perfekt|prima|klasse|verstanden|gut|passt|ah ok(?:ay)?|ach so|aha|nice|sehr gut)",
+]
+response = "Alles klar! Wenn du noch eine Frage hast, stell sie einfach."
+
+[chatbot.small_talk.farewell]
+patterns = [
+    "(?:tsch(?:ü|ue|ö)s*|ciao|bye|bye bye|bis (?:dann|später|bald|morgen)|auf wiedersehen|schönen tag(?: noch)?|mach s gut|machs gut)(?: (?:zusammen|du|ihr))?",
+]
+response = "Tschüss und viel Erfolg im Studium!"
+
+# Rückfrage bei Fragen, die vom Studiengang abhängen. Das Sprachmodell stellte trotz
+# entsprechender Regel im Prompt keine Rückfragen. Trifft eines
+# der Muster zu und ist kein Studiengang genannt, fragt der Chatbot ohne Sprachmodell nach;
+# ist ein Studiengang genannt, den es als Bachelor und als Master gibt, fragt er nach dem Abschluss.
+# Muster werden auf die klein geschriebene Frage samt vorheriger Fragen angewendet.
+[chatbot.clarification]
+patterns = [
+    # „dieses Semester“, „im 5. Semester“, „in meinem aktuellen Fachsemester“
+    "\\b(?:dieses|diesem|im|in meinem|meinem|aktuellen|jetzigen|kommenden|kommendes|nächsten|nächstes|bestimmten|welchem)\\s+(?:aktuellen\\s+)?(?:\\d+\\.?\\s*)?(?:fach)?semester\\b",
+    # „meine Kreditpunkte“, „mein Studiengang“, „meinen Bachelor“
+    "\\bmein(?:e|en|em|er)?\\s+(?:studiengang|studium|prüfungsordnung|studienordnung|studiengangsordnung|kreditpunkte|module|bachelor|master)\\b",
+    # Platzhalter aus der Befragung wie „Master XY“
+    "\\b(?:master|bachelor)\\s*xy\\b",
+    # Umfang und Auswahl der Wahlpflicht- und Wahlbereiche unterscheiden sich je Studiengang;
+    # Begriffsfragen („Was ist ein Wahlpflichtmodul?“) lösen keine Rückfrage aus.
+    "\\b(?:wie viele|welche|muss ich|brauche ich|benötige ich|zählen)\\b[^?]*\\bwahl(?:pflicht|fächer|fach|modul)",
+    "\\bwahl(?:pflicht|fächer|fach|modul)\\w*\\b[^?]*\\b(?:benötige|brauche|muss ich|belegen|zählen)\\b",
+]
+# Abschluss genannt; erfasst auch Tippfehler wie „Bachlor“ oder „Baechelor“
+degree_pattern = "\\b(?:b\\w{2,6}lor|master|b\\.?\\s?sc|m\\.?\\s?sc)\\b"
+program_response = "Das hängt von deinem Studiengang ab. Welchen Studiengang studierst du, im Bachelor oder im Master, und in welchem Semester bist du?"
+degree_response = "Meinst du den Bachelor- oder den Masterstudiengang {name}?"
+# Bezug auf das eigene Semester („dieses Semester“) ohne Semesterzahl: Rückfrage nach dem Semester
+relative_semester_pattern = "\\b(?:dieses|diesem|aktuellen|jetzigen|kommenden|kommendes|nächsten|nächstes)\\s+(?:fach)?semester\\b"
+semester_number_pattern = "\\b\\d+\\.?\\s*(?:fach)?semester\\b|\\b(?:erst|zweit|dritt|viert|fünft|sechst|siebt|acht)en?\\s+(?:fach)?semester\\b"
+semester_response = "In welchem Fachsemester bist du gerade?"
+
+# Studiengänge der Universität mit Erkennungsmustern (klein geschrieben, reguläre Ausdrücke),
+# gebräuchlichen Abkürzungen und Abschlüssen. Spezifischere Namen stehen vor allgemeineren,
+# da der erste Treffer zählt (z. B. „Medizinische Informatik“ vor „Informatik“). Abkürzungen
+# werden vor der Suche um den vollen Namen ergänzt.
+[[chatbot.programs]]
+name = "Medizinische Informatik"
+patterns = ["medizinische[nrs]?\\s+informatik", "medizininformatik"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Medieninformatik"
+patterns = ["medieninformatik"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Informatik"
+patterns = ["informatik"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "IT-Sicherheit"
+patterns = ["it[- ]?sicherheit", "it[- ]security"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Mathematik in Medizin und Lebenswissenschaften"
+patterns = ["mathematik in medizin", "\\bmml\\b"]
+abbreviations = ["MML"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Robotik und Autonome Systeme"
+patterns = ["robotik", "robotics", "\\bras\\b"]
+abbreviations = ["RAS"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Medizinische Ingenieurwissenschaft"
+patterns = ["ingenieurwissenschaft", "medizintechnik", "\\bmiw\\b"]
+abbreviations = ["MIW"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Hörakustik und Audiologische Technik"
+patterns = ["hörakustik", "audiolog"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Molecular Life Science"
+patterns = ["molecular life", "\\bmls\\b"]
+abbreviations = ["MLS"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Infection Biology"
+patterns = ["infection biology", "infektionsbiologie"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Medizinische Ernährungswissenschaft"
+patterns = ["ernährungswissenschaft"]
+degrees = ["Bachelor"]
+
+[[chatbot.programs]]
+name = "Nutritional Medicine"
+patterns = ["nutritional medicine"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Biophysik"
+patterns = ["biophysik"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Klinische Psychologie und Psychotherapie"
+patterns = ["klinische[nr]?\\s+psychologie", "psychotherapie"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Psychologie – Cognitive Systems"
+patterns = ["cognitive systems"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Psychologie"
+patterns = ["psycholog"]
+degrees = ["Bachelor", "Master"]
+
+[[chatbot.programs]]
+name = "Artificial Intelligence"
+patterns = ["artificial intelligence"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Entrepreneurship in digitalen Technologien"
+patterns = ["entrepreneurship", "\\bedt\\b"]
+abbreviations = ["EdT"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Gesundheits- und Versorgungswissenschaften"
+patterns = ["versorgungswissenschaft", "\\bgvw\\b"]
+abbreviations = ["GVW"]
+degrees = ["Master"]
+
+[[chatbot.programs]]
+name = "Hebammenwissenschaft"
+patterns = ["hebamm", "\\bhewi\\b"]
+abbreviations = ["HeWi"]
+degrees = ["Bachelor"]
+
+[[chatbot.programs]]
+name = "Angewandte Pflegewissenschaft"
+patterns = ["pflegewissenschaft"]
+degrees = ["Bachelor"]
+
+[[chatbot.programs]]
+name = "Pflege"
+patterns = ["pflege"]
+degrees = ["Bachelor"]
+
+[[chatbot.programs]]
+name = "Physiotherapie"
+patterns = ["physiotherap"]
+degrees = ["Bachelor"]
+
+[[chatbot.programs]]
+name = "Ergotherapie / Logopädie"
+patterns = ["ergotherap", "logopäd"]
+degrees = ["Bachelor"]
+
+[[chatbot.programs]]
+name = "Humanmedizin"
+patterns = ["humanmedizin", "medizinstudium", "\\bmedizin\\b"]
+degrees = ["Staatsexamen"]
+
+[retrieval]
+# Anzahl der Chunks, die dem Sprachmodell übergeben werden
+top_k = 5
+# Anzahl der Treffer je Suchverfahren, die in die Zusammenführung eingehen
+candidates = 20
+# Konstante k der Reciprocal Rank Fusion (Cormack et al. 2009)
+rrf_k = 60
+# Suchtiefe der Näherungssuche im HNSW-Graphen (Kandidatenliste je Anfrage). Mit der
+# Voreinstellung von Chroma fehlten teils alle wirklich ähnlichsten Chunks; mit 2000 stimmen
+# die Treffer nahezu mit einer exakten Suche überein, bei rund 15 ms je Anfrage.
+ef_search = 2000
+
+[llm]
+# Schlüssel des aktiven Modells aus [llm.models]
+active = "apertus"
+# Lokaler Inferenzserver (mlx_lm.server) mit OpenAI-kompatibler Schnittstelle;
+# die Adresse ist nur auf diesem Rechner erreichbar.
+server_url = "http://127.0.0.1:8080/v1"
+# Temperatur 0 erzeugt deterministische, reproduzierbare Antworten.
+temperature = 0.0
+# Obergrenze der erzeugten Token je Antwort
+max_tokens = 512
+# Wartezeit auf eine Antwort in Sekunden
+timeout = 180.0
+# Argumente für die Chat-Vorlage der Modelle. Der Denkmodus ("Thinking") von Apertus
+# und Qwen3 wird abgeschaltet, da er die Antwortzeit stark erhöht.
+chat_template_args = { enable_thinking = false }
+
+# Alle Modelle sind mit mlx-lm auf 4 Bit quantisiert (Gruppengröße 64, affin).
+# Die Revision legt den genauen Stand des Repositorys fest.
+[llm.models.apertus]
+repo = "TyKaoz/Apertus-v1.5-8B-text-4bit"
+revision = "c6a6878bff8a4352467faf74615565f0f9907dc8"
+
+[llm.models.eurollm]
+repo = "luiscalisto/EuroLLM-9B-Instruct-2512-MLX-4bit"
+revision = "4caf14fe88c613cbc80247e46d5a9612cb741694"
+
+[llm.models.qwen3]
+repo = "mlx-community/Qwen3-8B-4bit"
+revision = "545dc4251c05440727734bcd94334791f6ab0192"
+
+[embedding]
+# Schlüssel des aktiven Modells aus [embedding.models]
+active = "nomic"
+# Maximale Eingabelänge beider Modelle in Token
+max_tokens = 512
+# Anzahl der Chunks, die gemeinsam eingebettet werden
+batch_size = 16
+
+# Jedes Modell erwartet eigene Präfixe vor Anfragen und Chunks (siehe Modellbeschreibungen).
+[embedding.models.nomic]
+repo = "nomic-ai/nomic-embed-text-v2-moe"
+query_prefix = "search_query: "
+document_prefix = "search_document: "
+# Das Modell bringt eigenen Code für seine Architektur mit.
+trust_remote_code = true
+
+[embedding.models.e5]
+repo = "intfloat/multilingual-e5-large-instruct"
+# Nur Anfragen erhalten eine Aufgabenbeschreibung, Chunks keinen Präfix.
+query_prefix = "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery: "
+document_prefix = ""
+trust_remote_code = false
+
+[keyword_index]
+# Sprache für Stemming und Stoppwörter der lexikalischen Suche
+language = "german"
+
+[tests]
+# Testdatensatz und Ordner der Testläufe, relativ zum Projektordner
+testset = "technische-tests/testdatensatz.csv"
+runs_dir = "technische-tests/laeufe"
+# Vor jeder Messung gestellt, damit Modelle und Zwischenspeicher geladen sind. Die Fragen
+# stammen nicht aus dem Testdatensatz und gehen nicht in die Ergebnisse ein.
+warmup_questions = [
+    "Was ist das Studium Generale?",
+    "Wo finde ich den Lageplan des Campus?",
+    "Wie kann ich mich exmatrikulieren?",
+]
+
+# Externes Bewerter-LLM. Übermittelt werden nur Testfragen, Auszüge der öffentlichen
+# Webseite und Antworten des Chatbots. Der Schlüssel steht in der Umgebungsvariable
+# ANTHROPIC_API_KEY, nicht in dieser Datei. Kostenpflichtig (etwa 3 $ je Lauf), daher
+# nur für Läufe, bei denen der Chatbot als fertig gilt.
+[tests.judge]
+provider = "anthropic"
+model = "claude-opus-5-5"
+# Denktiefe des Bewerters (low, medium, high, xhigh, max)
+effort = "medium"
+prompt = "technische-tests/bewerter-prompt.txt"
+pause_seconds = 1.0
+retry_seconds = 30.0
+max_attempts = 5

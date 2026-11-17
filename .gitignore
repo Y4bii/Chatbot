@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtuelle Umgebung
+.venv/
+
+# Abgerufene Webseiten und Indizes
+data/
+
+# macOS
+.DS_Store
+
+# Arbeitsnotizen und Entwicklungsstände
+NOTIZEN.md
+technische-tests/TECHNISCHE_TESTS.md
+technische-tests/entwicklungsfragen.csv
+
+# Testläufe: nur der bewertete Endstand
+technische-tests/laeufe/*
+!technische-tests/laeufe/2026-11-17_0723_apertus_nomic/
+
+# Material für die Auswertung: Stichprobe von Hand und Speichermessung
+technische-tests/stichprobe/
+technische-tests/speichermessung/

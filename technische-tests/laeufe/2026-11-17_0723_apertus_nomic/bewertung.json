@@ -1,0 +1,13 @@
+{
+  "beginn": "2026-11-17T12:40:50+01:00",
+  "anbieter": "anthropic",
+  "modell": "claude-opus-5-5",
+  "testfaelle": 58,
+  "bewertet": 58,
+  "fehler": 0,
+  "vollstaendig": true,
+  "token": {
+    "eingabe": 392141,
+    "ausgabe": 32436
+  }
+}

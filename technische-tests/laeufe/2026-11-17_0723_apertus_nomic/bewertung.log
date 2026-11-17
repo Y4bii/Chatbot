@@ -1,0 +1,196 @@
+2026-11-17 12:40:50,254 INFO Bewertung 1 (1/58)
+2026-11-17 12:40:56,926 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:40:57,956 INFO Bewertung 2 (2/58)
+2026-11-17 12:41:10,302 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:41:11,310 INFO Bewertung 3 (3/58)
+2026-11-17 12:41:14,579 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:41:15,586 INFO Bewertung 4 (4/58)
+2026-11-17 12:41:22,933 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:41:23,942 INFO Bewertung 5 (5/58)
+2026-11-17 12:41:32,712 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:41:33,719 INFO Bewertung 6 (6/58)
+2026-11-17 12:41:40,204 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:41:41,211 INFO Bewertung 7 (7/58)
+2026-11-17 12:41:46,239 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:41:47,244 INFO Bewertung 8 (8/58)
+2026-11-17 12:42:00,978 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:42:01,987 INFO Bewertung 9 (9/58)
+2026-11-17 12:42:10,898 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:42:11,908 INFO Bewertung 10 (10/58)
+2026-11-17 12:42:22,404 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:42:23,411 INFO Bewertung 11 (11/58)
+2026-11-17 12:42:31,757 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:42:32,767 INFO Bewertung 12 (12/58)
+2026-11-17 12:42:37,856 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:42:38,866 INFO Bewertung 13 (13/58)
+2026-11-17 12:42:45,973 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:42:46,980 INFO Bewertung 14 (14/58)
+2026-11-17 12:42:56,726 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:42:57,734 INFO Bewertung 15 (15/58)
+2026-11-17 12:43:01,445 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:02,455 INFO Bewertung 16 (16/58)
+2026-11-17 12:43:07,738 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:08,746 INFO Bewertung 17 (17/58)
+2026-11-17 12:43:19,679 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:20,689 INFO Bewertung 18 (18/58)
+2026-11-17 12:43:25,057 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:26,063 INFO Bewertung 19 (19/58)
+2026-11-17 12:43:32,529 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:33,535 INFO Bewertung 20 (20/58)
+2026-11-17 12:43:36,807 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:37,811 INFO Bewertung 21 (21/58)
+2026-11-17 12:43:40,975 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:41,980 INFO Bewertung 22 (22/58)
+2026-11-17 12:43:52,617 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:43:53,621 INFO Bewertung 23 (23/58)
+2026-11-17 12:44:01,820 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:02,827 INFO Bewertung 24 (24/58)
+2026-11-17 12:44:11,358 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:12,362 INFO Bewertung 25 (25/58)
+2026-11-17 12:44:21,723 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:22,728 INFO Bewertung 26 (26/58)
+2026-11-17 12:44:32,256 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:33,266 INFO Bewertung 27 (27/58)
+2026-11-17 12:44:36,334 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:37,342 INFO Bewertung 28 (28/58)
+2026-11-17 12:44:42,112 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:43,119 INFO Bewertung 29 (29/58)
+2026-11-17 12:44:51,132 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:52,140 INFO Bewertung 30 (30/58)
+2026-11-17 12:44:55,785 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:44:56,793 INFO Bewertung 31 (31/58)
+2026-11-17 12:45:05,833 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:45:06,838 INFO Bewertung 32 (32/58)
+2026-11-17 12:45:16,077 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:45:17,087 INFO Bewertung 33 (33/58)
+2026-11-17 12:45:25,177 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:45:26,184 INFO Bewertung 34 (34/58)
+2026-11-17 12:45:32,435 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:45:33,442 INFO Bewertung 35 (35/58)
+2026-11-17 12:45:42,457 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:45:43,471 INFO Bewertung 36 (36/58)
+2026-11-17 12:45:48,684 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:45:49,692 INFO Bewertung 37 (37/58)
+2026-11-17 12:45:58,645 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:45:59,655 INFO Bewertung 38 (38/58)
+2026-11-17 12:46:07,628 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:08,637 INFO Bewertung 39 (39/58)
+2026-11-17 12:46:11,964 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:12,971 INFO Bewertung 40 (40/58)
+2026-11-17 12:46:22,517 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:23,526 INFO Bewertung 41 (41/58)
+2026-11-17 12:46:27,879 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:28,884 INFO Bewertung 42 (42/58)
+2026-11-17 12:46:32,268 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:33,277 INFO Bewertung 43 (43/58)
+2026-11-17 12:46:43,102 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:44,107 INFO Bewertung 44 (44/58)
+2026-11-17 12:46:53,035 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:54,042 INFO Bewertung 45 (45/58)
+2026-11-17 12:46:58,974 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:46:59,983 INFO Bewertung 46 (46/58)
+2026-11-17 12:47:04,400 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:47:05,408 INFO Bewertung 47 (47/58)
+2026-11-17 12:47:14,436 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:47:15,444 INFO Bewertung 48 (48/58)
+2026-11-17 12:47:21,816 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:47:22,823 INFO Bewertung 49 (49/58)
+2026-11-17 12:47:31,025 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:47:32,033 INFO Bewertung 50 (50/58)
+2026-11-17 12:47:40,358 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:47:41,365 INFO Bewertung 51 (51/58)
+2026-11-17 12:47:51,038 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:47:52,045 INFO Bewertung 52 (52/58)
+2026-11-17 12:47:58,206 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:47:59,210 INFO Bewertung 53 (53/58)
+2026-11-17 12:48:08,507 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:48:09,511 INFO Bewertung 54 (54/58)
+2026-11-17 12:48:19,786 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:48:20,789 INFO Bewertung 55 (55/58)
+2026-11-17 12:48:31,209 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:48:32,219 INFO Bewertung 56 (56/58)
+2026-11-17 12:48:42,772 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:48:43,780 INFO Bewertung 57 (57/58)
+2026-11-17 12:48:47,013 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-11-17 12:48:48,018 INFO Bewertung 58 (58/58)
+2026-11-17 12:48:56,372 INFO HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+{
+  "testfaelle": 58,
+  "erwartet": {
+    "antwort": 33,
+    "rueckfrage": 15,
+    "fallback": 10
+  },
+  "suche": {
+    "musterquelle_unter_auszuegen": 0.625,
+    "mrr": 0.518,
+    "angezeigte_quelle_identisch": 0.458
+  },
+  "fallback": {
+    "bei_erwartetem_fallback_ausgeloest": 0.5,
+    "faelschlich_ausgeloest": 0.083
+  },
+  "zeit": {
+    "nachrichten": 73,
+    "median": 16.9,
+    "maximum": 37.1,
+    "ueber_20_s": 0.219
+  },
+  "anrede_sie": 0,
+  "ungueltige_zitate": 1,
+  "woerter_median": 34.5,
+  "bewerter": {
+    "bewertet": 58,
+    "fehler": 0,
+    "verhalten": {
+      "erfuellt": 15,
+      "teilweise": 21,
+      "nicht_erfuellt": 22
+    },
+    "verhalten_je_erwartung": {
+      "antwort": {
+        "erfuellt": 7,
+        "nicht_erfuellt": 11,
+        "teilweise": 15
+      },
+      "rueckfrage": {
+        "erfuellt": 4,
+        "teilweise": 4,
+        "nicht_erfuellt": 7
+      },
+      "fallback": {
+        "erfuellt": 4,
+        "teilweise": 2,
+        "nicht_erfuellt": 4
+      }
+    },
+    "rueckfrage_gestellt_wenn_erwartet": 0.733,
+    "korrektheit": {
+      "korrekt": 8,
+      "falsch": 18,
+      "teilweise": 23,
+      "nicht_anwendbar": 9
+    },
+    "treue": {
+      "vollstaendig": 15,
+      "nicht": 5,
+      "nicht_anwendbar": 11,
+      "teilweise": 27
+    },
+    "relevanz": {
+      "hoch": 23,
+      "mittel": 24,
+      "niedrig": 11
+    },
+    "kontext_relevanz": {
+      "mittel": 20,
+      "niedrig": 20,
+      "hoch": 18
+    },
+    "quelle_passend": {
+      "ja": 34,
+      "nein": 15,
+      "keine_quelle": 9
+    }
+  }
+}

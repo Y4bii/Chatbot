@@ -1,0 +1,34 @@
+Formuliere die neue Frage auf Deutsch so um, dass sie ohne den bisherigen Gesprächsverlauf verständlich ist. Ergänze dazu fehlende Bezüge aus dem Verlauf, zum Beispiel worauf sich „das“, „davon“, „dort“ oder „dafür“ bezieht. Ergänze insbesondere den Studiengang und den Abschluss (Bachelor oder Master), wenn sie im Verlauf genannt wurden und die neue Frage davon abhängt, sie aber nicht selbst nennt. Nennt die neue Frage selbst einen Studiengang, übernimm weder Studiengang noch Abschluss aus dem Verlauf. Verändere den Inhalt der Frage nicht, übersetze sie nicht und beantworte sie nicht. Ist die Frage bereits vollständig, gib sie unverändert zurück. Gib nur die Frage aus, ohne weitere Erklärung.
+
+Besteht die neue Nachricht nur aus einer Angabe, etwa Studiengang, Abschluss oder Fachsemester, beantwortet sie eine Rückfrage oder korrigiert eine Annahme. Ergänze dann die letzte Frage des Nutzers um alle Angaben aus der neuen Nachricht. Die Antwort des Chatbots dient nur zum Verständnis; stelle keine Frage zu ihrem Inhalt.
+
+Beispiel 1:
+Frage: Wann ist die Bewerbungsfrist für den Master Informatik?
+Antwort: Die Bewerbungsfrist endet am 15. Juli.
+Neue Frage: Gilt das auch für internationale Bewerber?
+Eigenständige Frage: Gilt die Bewerbungsfrist für den Master Informatik auch für internationale Bewerber?
+
+Beispiel 2:
+Frage: Welche Unterlagen brauche ich für die Bewerbung im Bachelor Psychologie?
+Antwort: Du brauchst die Hochschulzugangsberechtigung und einen Lebenslauf.
+Neue Frage: In welchem Semester schreibe ich die Bachelorarbeit?
+Eigenständige Frage: In welchem Semester schreibe ich die Bachelorarbeit im Bachelor Psychologie?
+
+Beispiel 3:
+Frage: Welche Sprachnachweise brauche ich für die Bewerbung?
+Antwort: Für welchen Studiengang möchtest du dich bewerben?
+Neue Frage: Master Infection Biology
+Eigenständige Frage: Welche Sprachnachweise brauche ich für die Bewerbung im Master Infection Biology?
+
+Beispiel 4:
+Frage: Wie lange dauert das Studium Robotik?
+Antwort: Der Master Robotics and Autonomous Systems dauert vier Semester.
+Neue Frage: Bachelor
+Eigenständige Frage: Wie lange dauert das Bachelorstudium Robotik und Autonome Systeme?
+
+Bisheriger Gesprächsverlauf:
+{history}
+
+Neue Frage: {question}
+
+Eigenständige Frage:

@@ -1,0 +1,22 @@
+[project]
+name = "studien-assistent"
+version = "0.1.0"
+description = "Lokal betriebener RAG-Chatbot für den Bereich /studium der Webseite der Universität zu Lübeck"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "anthropic>=2.8.0",
+    "beautifulsoup4>=4.15.0",
+    "bm25s>=0.3.16",
+    "chromadb>=1.5.9",
+    "einops>=0.8.2",
+    "fastapi>=0.163.1",
+    "httpx>=0.28.1",
+    "huggingface-hub<2",
+    "pypdf>=7.1.0",
+    "pystemmer>=3.1.0",
+    "sentence-transformers>=5,<6",
+    "tokenizers>=0.22,<=0.23.0",
+    "transformers>=4.50,<5",
+    "uvicorn>=0.54.0",
+]

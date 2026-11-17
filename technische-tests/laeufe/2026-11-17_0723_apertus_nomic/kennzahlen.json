@@ -1,0 +1,80 @@
+{
+  "testfaelle": 58,
+  "erwartet": {
+    "antwort": 33,
+    "rueckfrage": 15,
+    "fallback": 10
+  },
+  "suche": {
+    "musterquelle_unter_auszuegen": 0.625,
+    "mrr": 0.518,
+    "angezeigte_quelle_identisch": 0.458
+  },
+  "fallback": {
+    "bei_erwartetem_fallback_ausgeloest": 0.5,
+    "faelschlich_ausgeloest": 0.083
+  },
+  "zeit": {
+    "nachrichten": 73,
+    "median": 16.9,
+    "maximum": 37.1,
+    "ueber_20_s": 0.219
+  },
+  "anrede_sie": 0,
+  "ungueltige_zitate": 1,
+  "woerter_median": 34.5,
+  "bewerter": {
+    "bewertet": 58,
+    "fehler": 0,
+    "verhalten": {
+      "erfuellt": 15,
+      "teilweise": 21,
+      "nicht_erfuellt": 22
+    },
+    "verhalten_je_erwartung": {
+      "antwort": {
+        "erfuellt": 7,
+        "nicht_erfuellt": 11,
+        "teilweise": 15
+      },
+      "rueckfrage": {
+        "erfuellt": 4,
+        "teilweise": 4,
+        "nicht_erfuellt": 7
+      },
+      "fallback": {
+        "erfuellt": 4,
+        "teilweise": 2,
+        "nicht_erfuellt": 4
+      }
+    },
+    "rueckfrage_gestellt_wenn_erwartet": 0.733,
+    "korrektheit": {
+      "korrekt": 8,
+      "falsch": 18,
+      "teilweise": 23,
+      "nicht_anwendbar": 9
+    },
+    "treue": {
+      "vollstaendig": 15,
+      "nicht": 5,
+      "nicht_anwendbar": 11,
+      "teilweise": 27
+    },
+    "relevanz": {
+      "hoch": 23,
+      "mittel": 24,
+      "niedrig": 11
+    },
+    "kontext_relevanz": {
+      "mittel": 20,
+      "niedrig": 20,
+      "hoch": 18
+    },
+    "quelle_passend": {
+      "ja": 34,
+      "nein": 15,
+      "keine_quelle": 9
+    }
+  }
+}
